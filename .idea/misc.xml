@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/activity_album.xml" value="0.1111111111111111" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/activity_artist.xml" value="0.3392210144927536" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/activity_main.xml" value="0.3392210144927536" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/activity_playlist.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/activity_song.xml" value="0.19010416666666666" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/album_item.xml" value="0.25" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/artist_item.xml" value="0.1890625" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/fragment_song.xml" value="0.3392210144927536" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/item_menu.xml" value="0.3392210144927536" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/playlist_item.xml" value="0.1890625" />
+        <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/song_item.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_album.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_artist.xml" value="0.18009118541033434" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudalbum.xml" value="0.1480978260869565" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudartist.xml" value="0.18009118541033434" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudplaylist.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudsong.xml" value="0.25" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_playlist.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/artist_item.xml" value="0.25" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/item_selection.xml" value="0.1480978260869565" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/playlist_item.xml" value="0.2640625" />
+        <entry key="..\:/TemplatesAndroid/Music/app/src/main/res/layout/activity_main.xml" value="0.2164855072463768" />
+        <entry key="..\:/TemplatesAndroid/Music/app/src/main/res/menu/botton_nav.xml" value="0.3446153846153846" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

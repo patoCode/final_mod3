@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CRUDAlbumActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Artista">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_height" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Artista">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_height" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Artista">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_height" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_artista"
+            android:hint="Artista"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            >
+           <com.google.android.material.textfield.MaterialAutoCompleteTextView
+               android:id="@+id/matArtist"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="none"
+               />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_height" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
