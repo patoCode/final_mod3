@@ -45,6 +45,10 @@ interface ApiCall {
 
     @PUT("playlists/edit/{id}")
     suspend fun updatePlaylist(@Path("id") id :String?, @Body playlist: PlaylistDto):Response<*>
+
+    @PUT("playlists/edit/{id}")
+    suspend fun updateAlbum(@Path("id") id :String?, @Body album: AlbumDto):Response<*>
+
 //    @PUT("cancion/edit/{id}")
 //    suspend fun updateSong(@Path("id") id :String?, @Body song: SongDto):Response<*>
 //

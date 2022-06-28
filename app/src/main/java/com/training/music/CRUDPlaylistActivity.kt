@@ -54,10 +54,9 @@ class CRUDPlaylistActivity : AppCompatActivity() {
                 }
             }
         }else{
-            _element!!.name = binding.etName.toString()
-            _element!!.priority = Integer.parseInt(binding.etPriority.toString())
+            _element!!.name = binding.etName.text.toString()
+            _element!!.priority = binding.etPriority.text.toString().toInt()
             _element!!.cancion = null
-            Log.d("AAA", _element!!.toString())
             CoroutineScope(Dispatchers.IO).launch {
                 val response: Response<*> = ApiObject.getRetro().updatePlaylist(_element!!._id, _element!!)
                 runOnUiThread {
