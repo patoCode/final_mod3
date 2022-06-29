@@ -2,81 +2,88 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvContainer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
-    android:elevation="5dp"
-    app:cardCornerRadius="10dp"
-    android:backgroundTint="@color/teal_200"
+    android:background="#ECECEC"
+    android:elevation="2dp"
+    app:cardCornerRadius="0dp"
     >
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:background="@color/white"
         >
+
         <ImageView
-            android:id="@+id/ivCover"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_artista"
-            android:scaleType="fitXY"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/rlMainContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/c01"
+            android:backgroundTint="#60FFFFFF"
+            android:backgroundTintMode="src_over"
+            android:scaleType="centerCrop"
+
             />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textColor="@color/app_primary_text"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="ARTISTA NAME" />
+
+        <TextView
+            android:id="@+id/tvAlias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName"
+            android:text="TITULO"
+            android:textAlignment="center"
+            android:textColor="@color/app_secondary_text"
+            android:textStyle="bold" />
         <LinearLayout
-            android:id="@+id/llContainerMusic"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivCover"
-            app:layout_constraintEnd_toStartOf="@+id/rlActions"
-            android:orientation="vertical"
-            android:padding="16dp"
-            >
-            <TextView
-                android:id="@+id/tvName"
-                android:text="TITULO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:id="@+id/tvAlias"
-                android:text="TITULO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-        <RelativeLayout
-            android:id="@+id/rlActions"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/rlMainContainer"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/llContainerMusic"
-            app:layout_constraintEnd_toEndOf="parent"
             >
             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/actionEdit"
-                android:src="@drawable/ic_artista"
+                android:src="@drawable/ic_edit"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 style="@style/action_style"
+                android:layout_weight="1"
+                android:layout_below="@+id/tvAlias"
                 />
-
             <ImageView
                 android:id="@+id/actionRemove"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 style="@style/action_style"
-                android:layout_centerVertical="true"
+                android:layout_below="@+id/tvAlias"
                 android:layout_toEndOf="@+id/actionEdit"
-                android:src="@drawable/ic_song" />
-        </RelativeLayout>
+                android:src="@drawable/ic_delete"
+                android:layout_weight="1"
+                app:tint="#FF0000"
+                />
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

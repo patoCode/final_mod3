@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.training.music.databinding.ActivityArtistBinding
 import com.training.music.dto.ArtistDto
@@ -28,10 +30,12 @@ class ArtistActivity : AppCompatActivity() {
         override fun bindData(item:ArtistDto, view: View){
             var _tvName = view.findViewById<TextView>(R.id.tvName)
             var _tvAlias = view.findViewById<TextView>(R.id.tvAlias)
+            var _rlContainer = view.findViewById<ImageView>(R.id.rlMainContainer)
             var _actionEdit = view.findViewById<ImageView>(R.id.actionEdit)
             var _actionRemove = view.findViewById<ImageView>(R.id.actionRemove)
             _tvName!!.text = item.name.toString()
             _tvAlias!!.text = item.alias.toString()
+            _rlContainer.setBackgroundResource(R.drawable.c01)
             _actionEdit.setOnClickListener{
                 editElement(item)
             }
@@ -74,7 +78,7 @@ class ArtistActivity : AppCompatActivity() {
 
     private fun initRecycler(){
         adapter = GenericAdapter<ArtistDto>(_artistList, R.layout.artist_item, bindingInterface)
-        binding.rvArtista.layoutManager = LinearLayoutManager(this)
+        binding.rvArtista.layoutManager = GridLayoutManager(this, 2)
         binding.rvArtista.adapter = adapter
     }
 

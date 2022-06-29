@@ -3,9 +3,7 @@
     <dimen name="menu_title">14sp</dimen>
     <dimen name="corner_radius_menu">16dp</dimen>
     <dimen name="menu_icon">40dp</dimen>
-
-    <dimen name="list_item_title">16sp</dimen>
-    <dimen name="list_item_subtitle">12sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="space_height">16dp</dimen>
+    <dimen name="menu_title_text">20sp</dimen>
 </resources>

@@ -44,7 +44,10 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             _element = intent.extras!!.getSerializable("album") as AlbumDto?
             binding.etName.setText(_element?.name)
             binding.etCover.setText(_element?.cover)
-            binding.etYear.setText(_element?.year)
+            _element!!.year?.let { binding.etYear.setText(it) }?: run {
+                "0"
+            }
+            Log.d("TEST", _element!!.toString())
         }
         binding.btnSave.setOnClickListener {
             onClickSave()
@@ -58,7 +61,6 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private fun onClickSave() {
         if(_element == null){
-
             _element = AlbumDto(
                 null,
                 binding.etName.text.toString(),
@@ -81,6 +83,9 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             _element!!.name = binding.etName.text.toString()
             _element!!.cover = binding.etCover.text.toString()
             _element!!.year = binding.etYear.text.toString().toInt()
+            _element!!.cancion = null
+            _element!!.artista = _element!!.artista
+
             CoroutineScope(Dispatchers.IO).launch {
                 val response: Response<*> = ApiObject.getRetro().updateAlbum(_element!!._id, _element!!)
                 runOnUiThread {

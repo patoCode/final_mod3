@@ -30,6 +30,7 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_margin">4dp</item>
         <item name="android:clickable">true</item>
+        <item name="android:tint">@color/app_primary_text</item>
     </style>
 
     <style name="Theme.Music.NoActionBar">
