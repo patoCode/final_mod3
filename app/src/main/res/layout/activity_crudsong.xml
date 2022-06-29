@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/space_height" />
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilArtist"
+            android:id="@+id/tilAlbum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:startIconDrawable="@drawable/ic_album"

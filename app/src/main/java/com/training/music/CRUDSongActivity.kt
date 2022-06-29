@@ -40,10 +40,10 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             setAdapter(arrayAdapter)
             onItemClickListener = this@CRUDSongActivity
         }
-        binding.matAlbum.isVisible = true
+        binding.tilAlbum.isVisible = true
         if(intent.extras != null){
             _element = intent.extras!!.getSerializable("song") as SongDto?
-            binding.matAlbum.isVisible = false
+            binding.tilAlbum.isVisible = false
             binding.etName.setText(_element?.name)
             binding.etImage.setText(_element?.image)
             binding.etTrack.setText(_element?.track.toString())
