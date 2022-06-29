@@ -14,23 +14,21 @@
         <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/item_menu.xml" value="0.3392210144927536" />
         <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/playlist_item.xml" value="0.1890625" />
         <entry key="..\:/DIP/f03/music_app/app/src/main/res/layout/song_item.xml" value="0.1" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_album.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/drawable/rounded_img.xml" value="0.351" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_album.xml" value="0.25" />
         <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_artist.xml" value="0.18009118541033434" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudalbum.xml" value="0.1480978260869565" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudartist.xml" value="0.18009118541033434" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudplaylist.xml" value="0.1" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudalbum.xml" value="0.4655436447166922" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudartist.xml" value="0.33" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudplaylist.xml" value="0.22" />
         <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_crudsong.xml" value="0.25" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_playlist.xml" value="0.1" />
-        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/album_item.xml" value="0.2513586956521739" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_playlist.xml" value="0.67" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/activity_song.xml" value="0.23958333333333334" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/album_item.xml" value="0.33" />
         <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/artist_item.xml" value="0.25" />
         <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/item_selection.xml" value="0.1480978260869565" />
         <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/playlist_item.xml" value="0.2640625" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/activity_album.xml" value="0.25" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/activity_artist.xml" value="0.33" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/album_item.xml" value="0.1765625" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/artist_item.xml" value="0.33" />
-        <entry key="..\:/Diplomado/Modulo 03/final_mod3/app/src/main/res/layout/item_selection.xml" value="0.25" />
+        <entry key="..\:/DIP/f03/spinner/app/src/main/res/layout/song_item.xml" value="0.4541984732824427" />
         <entry key="..\:/TemplatesAndroid/Music/app/src/main/res/layout/activity_main.xml" value="0.2164855072463768" />
         <entry key="..\:/TemplatesAndroid/Music/app/src/main/res/menu/botton_nav.xml" value="0.3446153846153846" />
       </map>

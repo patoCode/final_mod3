@@ -29,8 +29,10 @@ class AlbumActivity : AppCompatActivity() {
     private val bindingInterface = object : GenericBinding<AlbumDto> {
         override fun bindData(item:AlbumDto, view: View){
             var _tvName = view.findViewById<TextView>(R.id.tvName)
+            var _tvYear = view.findViewById<TextView>(R.id.tvYear)
             var _actionEdit = view.findViewById<Button>(R.id.actionEdit)
             _tvName.text = item.name.uppercase()
+            _tvYear.text = item.year.toString()
             _actionEdit.setOnClickListener{
                 editElement(item)
             }
@@ -52,6 +54,9 @@ class AlbumActivity : AppCompatActivity() {
         list()
         binding.addElement.setOnClickListener {
             addElement()
+        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
     }
 

@@ -3,17 +3,123 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="15dp"
-    android:backgroundTint="@color/cardview_dark_background"
-    android:elevation="2dp"
+    android:layout_height="120dp"
+    app:cardCornerRadius="0dp"
+    android:layout_margin="6dp"
+    android:elevation="4dp"
     >
-
-    <TextView
-        android:id="@+id/tvName"
-        android:textColor="@color/white"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/ivPic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="10dp"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/c01" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivPic"
+            android:text="OJOS ASI"
+            android:textColor="@color/app_third_text"
+            android:textSize="14dp"
+            android:fontFamily="@font/chakra_petch_medium"
+            android:layout_marginTop="16dp"
+            />
+        <TextView
+            android:id="@+id/tvComposer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivPic"
+            android:layout_below="@+id/tvName"
+            android:text="OJOS ASI"
+            android:textStyle="bold"
+            android:textColor="@color/app_action_hover"
+            android:textSize="18dp"
+            android:fontFamily="@font/chakra_petch_medium"
+            android:textAllCaps="false"
+            />
+
+        <TextView
+            android:id="@+id/tvTrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPic"
+            android:layout_alignStart="@+id/ivPic"
+            android:layout_alignEnd="@+id/ivPic"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_img"
+            android:gravity="center"
+            android:text="Track 5"
+            android:textAlignment="center"
+            android:textColor="@color/app_action_normal"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_like"
+            android:layout_below="@+id/ivPic"
+            android:layout_alignStart="@+id/tvComposer"
+            app:tint="@color/app_action_normal"
+            android:layout_marginRight="5dp"
+            />
+        <TextView
+            android:id="@+id/tvLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPic"
+            android:layout_toEndOf="@+id/ivLike"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="15"
+            android:textColor="@color/app_action_normal"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/ivPlays"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_play"
+            android:layout_below="@+id/ivPic"
+            android:layout_toEndOf="@+id/tvLike"
+            app:tint="@color/app_action_normal"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/tvPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivPic"
+            android:layout_toEndOf="@+id/ivPlays"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="15 Plays"
+            android:textColor="@color/app_action_normal"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/actionEdit"
+            android:drawableStart="@drawable/ic_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            app:backgroundTint="@color/app_bg_hover"
+            app:tint="@color/black"
+            android:text="editar"
+            />
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

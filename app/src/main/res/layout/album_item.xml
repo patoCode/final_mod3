@@ -2,47 +2,57 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="120dp"
-    android:background="@color/purple_200"
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="4dp"
+    android:layout_margin="4dp"
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="10dp"
         >
         <ImageView
             android:id="@+id/ivPic"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/rounded_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:clipToOutline="true"
             android:scaleType="centerCrop"
             android:src="@drawable/c01"
-            android:clipToOutline="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="10dp"
             />
         <TextView
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/ivPic"
-            android:text="PRUEBA DE TEXTO"
-            />
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/ivPic"
-            android:layout_alignParentBottom="true"
-            >
+            android:text="PRUEBA DE TEXTO"
+            android:textColor="@color/app_primary_text"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="16dp"
+            />
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivPic"
+            android:layout_below="@+id/tvName"
+            android:text="2016"
+            android:textColor="@color/app_third_text"
+            />
 
-            <Button
-                android:id="@+id/actionEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="editar"
-                />
-        </LinearLayout>
+        <Button
+            android:id="@+id/actionEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:drawableStart="@drawable/ic_edit"
+            android:text="editar"
+            app:backgroundTint="@color/app_bg_hover"
+            app:tint="@color/black" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -7,9 +7,9 @@ data class AlbumDto(
     var _id: String?,
     var name: String,
     var cover: String,
-    var year: Int?,
+    var year: Int? = 0,
     var cancion: MutableList<*>?,
-    var artista: String?
+    var artista: String? = ""
 ):Serializable, GenericDto{
     override fun toString(): String{
         return name

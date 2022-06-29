@@ -10,6 +10,12 @@
 
     <!--    APP COLORS    -->
     <color name="app_bg">#F7EDEE</color>
-    <color name="app_primary_text">#343238</color>
-    <color name="app_secondary_text">#CCC9D0</color>
+    <color name="app_bg_main">#E9EEF2</color>
+    <color name="app_bg_hover">#65BF7A</color>
+    <color name="app_primary_text">#11534B</color>
+    <color name="app_btn_bg">#77DA7D</color>
+    <color name="app_secondary_text">#C6EBC2</color>
+    <color  name="app_third_text">#A3ABB4</color>
+    <color  name="app_action_normal">#A3ABB4</color>
+    <color name="app_action_hover">#404040</color>
 </resources>

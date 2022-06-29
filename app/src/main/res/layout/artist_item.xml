@@ -4,15 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvContainer"
-    android:layout_width="150dp"
-    android:layout_height="150dp"
+    android:layout_width="180dp"
+    android:layout_height="205dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
     android:background="#ECECEC"
     android:elevation="2dp"
-    app:cardCornerRadius="0dp"
+    app:cardCornerRadius="@dimen/corner_radius"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,28 +21,32 @@
         >
 
         <ImageView
-            android:id="@+id/rlMainContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:id="@+id/ivPic"
+            android:layout_width="@dimen/image_artist_list"
+            android:layout_height="@dimen/image_artist_list"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/c01"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_img"
             android:backgroundTint="#60FFFFFF"
             android:backgroundTintMode="src_over"
-            android:scaleType="centerCrop"
-
-            />
+            android:clipToOutline="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/c01" />
 
         <TextView
             android:id="@+id/tvName"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_below="@+id/ivPic"
+            android:layout_marginTop="10dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:maxLines="1"
             android:textAlignment="center"
-            android:textColor="@color/app_primary_text"
-            android:textStyle="bold"
             android:textAllCaps="true"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/app_secondary_text"
             tools:text="ARTISTA NAME" />
 
         <TextView
@@ -50,40 +54,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvName"
-            android:text="TITULO"
+            android:maxLines="1"
+            android:text="Alias"
             android:textAlignment="center"
-            android:textColor="@color/app_secondary_text"
+            android:textAllCaps="false"
+            android:textColor="@color/app_third_text"
             android:textStyle="bold" />
-        <LinearLayout
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/rlMainContainer"
-            android:gravity="center"
-            >
-            <ImageView
+            android:layout_below="@+id/tvAlias"
+            android:layout_alignParentBottom="true">
+
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/actionEdit"
-                android:src="@drawable/ic_edit"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                style="@style/action_style"
-                android:layout_weight="1"
-                android:layout_below="@+id/tvAlias"
-                />
-            <ImageView
-                android:id="@+id/actionRemove"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                style="@style/action_style"
-                android:layout_below="@+id/tvAlias"
-                android:layout_toEndOf="@+id/actionEdit"
-                android:src="@drawable/ic_delete"
-                android:layout_weight="1"
-                app:tint="#FF0000"
-                />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/actionEdit"
+                    style="@style/action_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:src="@drawable/ic_edit" />
+
+                <ImageView
+                    android:id="@+id/actionRemove"
+                    style="@style/action_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:src="@drawable/ic_delete" />
+
+                <ImageView
+                    android:id="@+id/actionView"
+                    style="@style/action_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_song" />
+            </TableRow>
+
+        </TableLayout>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

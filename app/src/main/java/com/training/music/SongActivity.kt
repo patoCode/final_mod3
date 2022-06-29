@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import com.training.music.databinding.ActivitySongBinding
+import com.training.music.dto.PlaylistDto
 import com.training.music.dto.SongDto
 import com.training.music.generics.GenericAdapter
 import com.training.music.generics.GenericBinding
@@ -26,11 +29,34 @@ class SongActivity : AppCompatActivity() {
 
     private val bindingInterface = object : GenericBinding<SongDto> {
         override fun bindData(item:SongDto, view:View){
+            var _ivPic = view.findViewById<ImageView>(R.id.ivPic)
             var _tvName = view.findViewById<TextView>(R.id.tvName)
+            var _tvComposer = view.findViewById<TextView>(R.id.tvComposer)
+            var _tvTrack = view.findViewById<TextView>(R.id.tvTrack)
+            var _tvLike = view.findViewById<TextView>(R.id.tvLike)
+            var _actionEdit = view.findViewById<TextView>(R.id.actionEdit)
             _tvName.text = item.name.uppercase()
+            _tvComposer.text = item.composer
+            _tvTrack.text = item.track.toString()
+            if(item.like.toString().equals("null")){
+                _tvLike.text = "0"
+            }else{
+                _tvLike.text = item.like.toString()
+            }
+            Picasso.get().load(item.image).into(_ivPic)
+            _actionEdit.setOnClickListener{
+                editElement(item)
+            }
+
         }
     }
 
+    private fun editElement(_obj: SongDto) {
+        var intent = Intent(this@SongActivity, CRUDSongActivity::class.java)
+        intent.putExtra("song", _obj)
+        this.startActivity(intent)
+        true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySongBinding.inflate(layoutInflater)
@@ -39,6 +65,9 @@ class SongActivity : AppCompatActivity() {
         list()
         binding.addElement.setOnClickListener {
             addElement()
+        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
     }
 

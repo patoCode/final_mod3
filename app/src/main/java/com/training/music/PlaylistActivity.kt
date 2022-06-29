@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,12 +25,22 @@ class PlaylistActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPlaylistBinding
     private lateinit var adapter : GenericAdapter<PlaylistDto>
     private val _list = mutableListOf<PlaylistDto>()
+    var listCovers = listOf<Int>(
+        R.drawable.pl01,
+        R.drawable.pl02,
+        R.drawable.pl03,
+    )
 
     private val bindingInterface = object : GenericBinding<PlaylistDto> {
         override fun bindData(item:PlaylistDto, view: View){
+            val _cover = (0..2).random()
             var _tvName = view.findViewById<TextView>(R.id.tvName)
+            var _tvPriority = view.findViewById<TextView>(R.id.tvPriority)
+            var _ivPic = view.findViewById<ImageView>(R.id.ivPic)
             var _actionEdit = view.findViewById<TextView>(R.id.actionEdit)
             _tvName.text = item.name.uppercase()
+            _tvPriority.text = item.priority.let { it }.toString()
+            _ivPic.setImageResource(listCovers[_cover])
             _actionEdit.setOnClickListener{
                 editElement(item)
             }
@@ -51,6 +62,9 @@ class PlaylistActivity : AppCompatActivity() {
         list()
         binding.addElement.setOnClickListener {
             addElement()
+        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
     }
 

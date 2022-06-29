@@ -33,6 +33,9 @@ class CRUDPlaylistActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             onClickSave()
         }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun onClickSave() {

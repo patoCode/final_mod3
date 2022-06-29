@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.training.music.databinding.ActivityCrudsongBinding
 import com.training.music.dto.AlbumDto
 import com.training.music.dto.SongDto
@@ -39,9 +40,16 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             setAdapter(arrayAdapter)
             onItemClickListener = this@CRUDSongActivity
         }
-
+        binding.matAlbum.isVisible = true
         if(intent.extras != null){
             _element = intent.extras!!.getSerializable("song") as SongDto?
+            binding.matAlbum.isVisible = false
+            binding.etName.setText(_element?.name)
+            binding.etImage.setText(_element?.image)
+            binding.etTrack.setText(_element?.track.toString())
+            binding.etComposer.setText(_element?.composer)
+            binding.etUrl.setText(_element?.url)
+            binding.etLyrics.setText(_element?.lyrics)
         }
         binding.btnSave.setOnClickListener {
             onClickSave()
@@ -80,6 +88,7 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
                 binding.etComposer.text.toString(),
                 binding.etUrl.text.toString(),
                 binding.etLyrics.text.toString(),
+                null,
                 null,
                 _spinnerId
             )

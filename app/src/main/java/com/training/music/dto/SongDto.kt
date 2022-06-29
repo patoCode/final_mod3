@@ -12,6 +12,7 @@ data class SongDto(
     var composer: String,
     var url: String,
     var lyrics: String,
+    var like: Int? = 0,
     var playlist: MutableList<*>?,
     var album: String?
 ):Serializable, GenericDto {

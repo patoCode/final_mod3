@@ -1,5 +1,6 @@
 package com.training.music
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +25,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class ArtistActivity : AppCompatActivity() {
+
     private lateinit var binding : ActivityArtistBinding
     private lateinit var adapter : GenericAdapter<ArtistDto>
     private val _artistList = mutableListOf<ArtistDto>()
@@ -30,17 +33,19 @@ class ArtistActivity : AppCompatActivity() {
         override fun bindData(item:ArtistDto, view: View){
             var _tvName = view.findViewById<TextView>(R.id.tvName)
             var _tvAlias = view.findViewById<TextView>(R.id.tvAlias)
-            var _rlContainer = view.findViewById<ImageView>(R.id.rlMainContainer)
+            var _ivPic = view.findViewById<ImageView>(R.id.ivPic)
             var _actionEdit = view.findViewById<ImageView>(R.id.actionEdit)
             var _actionRemove = view.findViewById<ImageView>(R.id.actionRemove)
+
             _tvName!!.text = item.name.toString()
             _tvAlias!!.text = item.alias.toString()
-            _rlContainer.setBackgroundResource(R.drawable.c01)
+            _ivPic.setBackgroundResource(R.drawable.c01)
+
             _actionEdit.setOnClickListener{
                 editElement(item)
             }
             _actionRemove.setOnClickListener {
-                removeElement(item)
+                deleteElement(item)
             }
         }
     }
@@ -51,6 +56,34 @@ class ArtistActivity : AppCompatActivity() {
         this.startActivity(intent)
         true
     }
+
+    private fun deleteElement(artist: ArtistDto){
+        var dialog = AlertDialog.Builder(this)
+        dialog.setTitle("CONFIRMAR")
+        dialog.setIcon(R.drawable.ic_delete)
+        dialog.setMessage("Esta seguro de eliminar a ${artist.name.uppercase()}?")
+        dialog.setPositiveButton("Si", object : DialogInterface.OnClickListener{
+            override fun onClick(_dialog: DialogInterface?, p1: Int) {
+                if(artist != null) {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val response: Response<*> = ApiObject.getRetro().deleteArtist(artist!!._id)
+                        runOnUiThread {
+                            if (response.isSuccessful) {
+                                list()
+                                _dialog!!.dismiss()
+                            }else{
+                                Toast.makeText(this@ArtistActivity, "Error de eliminacion, verifique e intente nuevamente",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        dialog.setNegativeButton("Cancelar", null)
+        dialog.show()
+        true
+    }
+
 
     private fun removeElement(_obj: ArtistDto){
     }
@@ -63,6 +96,9 @@ class ArtistActivity : AppCompatActivity() {
         list()
         binding.addElement.setOnClickListener {
             addElement()
+        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -82,13 +118,12 @@ class ArtistActivity : AppCompatActivity() {
         binding.rvArtista.adapter = adapter
     }
 
-    fun list(){
+    private fun list(){
         CoroutineScope(Dispatchers.IO).launch {
             val _res: Response<Artist>
             _res = ApiObject.getRetro().listArtist()
             val _response = _res.body()!!
             val _list = _response.data
-            Log.d("TAG", _list.toString())
             runOnUiThread{
                 if(_res.isSuccessful){
                     _artistList.clear()

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="menu_title">14sp</dimen>
-    <dimen name="corner_radius_menu">16dp</dimen>
+    <dimen name="corner_radius_menu">10dp</dimen>
     <dimen name="menu_icon">40dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="space_height">16dp</dimen>
-    <dimen name="menu_title_text">20sp</dimen>
+    <dimen name="menu_title_text">16sp</dimen>
+    <dimen name="image_artist_list">80dp</dimen>
+    <dimen name="corner_radius">16dp</dimen>
 </resources>

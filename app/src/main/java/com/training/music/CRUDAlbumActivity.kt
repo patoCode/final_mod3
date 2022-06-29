@@ -42,15 +42,17 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         if(intent.extras != null){
             binding.tilArtist.isVisible = false
             _element = intent.extras!!.getSerializable("album") as AlbumDto?
+            Log.d("-- TAG --", _element.toString())
             binding.etName.setText(_element?.name)
             binding.etCover.setText(_element?.cover)
-            _element!!.year?.let { binding.etYear.setText(it) }?: run {
-                "0"
-            }
-            Log.d("TEST", _element!!.toString())
+            binding.etYear.setText(_element?.year!!.toString())
         }
+
         binding.btnSave.setOnClickListener {
             onClickSave()
+        }
+        binding.ivBack.setOnClickListener {
+            onBackPressed()
         }
     }
 
@@ -71,7 +73,6 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             )
             CoroutineScope(Dispatchers.IO).launch {
                 val response: Response<*> = ApiObject.getRetro().addAlbum(_element!!)
-                Log.d("TAGA", response.toString())
                 runOnUiThread {
                     if (response.isSuccessful) {
                         Toast.makeText(this@CRUDAlbumActivity,"Guardado correctamente", Toast.LENGTH_SHORT).show()
@@ -104,7 +105,6 @@ class CRUDAlbumActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             _res = ApiObject.getRetro().listArtist()
             val _response = _res.body()!!
             val _list = _response.data
-            Log.d("SP", _list.toString())
             runOnUiThread{
                 if(_res.isSuccessful){
                     _listArtist.addAll(_list)

@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ArtistActivity">
-
+    android:background="@color/app_bg_main"
+    tools:context=".ArtistActivity"
+    >
     <RelativeLayout
         android:id="@+id/rlTitle"
         android:layout_width="match_parent"
@@ -14,14 +15,16 @@
         android:padding="16dp"
         android:gravity="center|start"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/app_action_normal"
         android:elevation="2dp"
         >
+
         <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_artista"
             android:layout_alignParentStart="true"
-            />
+            android:src="@drawable/ic_back_arrow" />
         <TextView
             android:text="ARTISTAS"
             android:layout_width="wrap_content"
@@ -35,14 +38,19 @@
             />
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvArtista"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/rlTitle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvArtista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </ScrollView>
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addElement"
         android:layout_width="wrap_content"
@@ -52,8 +60,10 @@
         android:layout_margin="20dp"
         android:src="@drawable/ic_add"
         app:fabSize="auto"
-        android:backgroundTint="@color/app_primary_text"
+        android:backgroundTint="@color/app_action_normal"
         app:tint="@color/white"
+        android:elevation="0dp"
+        app:borderWidth="0dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
