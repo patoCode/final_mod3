@@ -8,4 +8,8 @@ data class PlaylistDto(
     var name :String,
     var priority: Int,
     var cancion: MutableList<*>?
-): Serializable, GenericDto
+): Serializable, GenericDto{
+    override fun toString(): String {
+        return name
+    }
+}

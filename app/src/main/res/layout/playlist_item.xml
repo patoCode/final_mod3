@@ -30,26 +30,25 @@
             android:textSize="50dp"
             android:gravity="center"
             android:layout_alignStart="@+id/ivPic"
-            android:textColor="@color/app_secondary_text"
+            android:textColor="@color/app_action_normal"
             />
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toEndOf="@+id/ivPic"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center"
             android:padding="4dp"
             >
             <TextView
                 android:id="@+id/tvName"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="PRUEBA DE TEXTO"
                 android:textColor="@color/app_primary_text"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:maxLines="1"
+                android:layout_alignParentTop="true"
                 />
             <Button
                 android:id="@+id/actionEdit"
@@ -58,9 +57,20 @@
                 android:drawableStart="@drawable/ic_edit"
                 app:backgroundTint="@color/app_btn_bg"
                 android:text="editar"
-                android:layout_weight="1"
+                android:layout_below="@+id/tvName"
                 />
-        </LinearLayout>
+            <Button
+                android:id="@+id/actionPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_play"
+                app:backgroundTint="@color/app_btn_bg"
+                android:text="Play"
+                android:layout_below="@+id/tvName"
+                android:layout_toEndOf="@+id/actionEdit"
+                android:layout_marginLeft="10dp"
+                />
+        </RelativeLayout>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

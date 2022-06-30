@@ -54,6 +54,10 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         binding.btnSave.setOnClickListener {
             onClickSave()
         }
+
+        binding.ivBack.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     private fun _fillSpinner() {
@@ -80,11 +84,15 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private fun onClickSave() {
         if(_element == null){
+            var image = "https://via.placeholder.com/100"
+            if(!binding.etImage.text.toString().isEmpty()){
+                image = binding.etImage.text.toString()
+            }
             _element = SongDto(
                 null,
                 binding.etName.text.toString(),
-                binding.etImage.text.toString(),
-                Integer.parseInt(binding.etTrack.text.toString()),
+                image,
+                binding.etTrack.text.toString().toInt(),
                 binding.etComposer.text.toString(),
                 binding.etUrl.text.toString(),
                 binding.etLyrics.text.toString(),
@@ -95,6 +103,26 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val response: Response<*> = ApiObject.getRetro().addSong(_element!!)
                 Log.d("TAGA", response.toString())
+                runOnUiThread {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@CRUDSongActivity,"Guardado correctamente", Toast.LENGTH_SHORT).show()
+                        onBackPressed()
+                    }
+                }
+            }
+        }else{
+            _element!!.name = binding.etName.text.toString()
+            _element!!.image = binding.etImage.text.toString()
+            _element!!.track = binding.etTrack.text.toString().toInt()
+            _element!!.composer = binding.etComposer.text.toString()
+            _element!!.url = binding.etUrl.text.toString()
+            _element!!.lyrics = binding.etLyrics.text.toString()
+            _element!!.like = _element!!.like
+            _element!!.playlist = null
+            _element!!.album = _element!!.album
+
+            CoroutineScope(Dispatchers.IO).launch {
+                val response: Response<*> = ApiObject.getRetro().updateSong(_element!!._id, _element!!)
                 runOnUiThread {
                     if (response.isSuccessful) {
                         Toast.makeText(this@CRUDSongActivity,"Guardado correctamente", Toast.LENGTH_SHORT).show()

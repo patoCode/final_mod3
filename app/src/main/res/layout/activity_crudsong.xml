@@ -5,115 +5,156 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CRUDSongActivity">
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/rlTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Canción">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center|start"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/app_action_normal"
+        android:elevation="2dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivBack"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilImage"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cover">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_back_arrow" />
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilTrack"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/chakra_petch_medium"
+            android:text="C.R.U.D. - Cancion"
+            android:textColor="@color/app_primary_text"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/rlTitle"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Track">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTrack"
-                android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilComposer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Compositor">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etComposer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Source">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etUrl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilLyrics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Letra">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLyrics"
+
+            android:orientation="vertical"
+            android:padding="20dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="5"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilAlbum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:startIconDrawable="@drawable/ic_album"
-            android:hint="Album"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            >
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/matAlbum"
+                android:hint="Canción">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
+                android:hint="Cover">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTrack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Track">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTrack"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilComposer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Compositor">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etComposer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Source">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLyrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Letra">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLyrics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="5"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAlbum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_album"
+                android:hint="Album"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+                >
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/matAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_height" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:textSize="14dp"
+                app:backgroundTint="@color/app_bg_hover"
+                app:tint="@color/black"
+                android:layout_gravity="center"
+                android:gravity="center"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_height" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guardar"
-            />
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

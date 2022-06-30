@@ -7,7 +7,7 @@ import java.io.Serializable
 data class SongDto(
     var _id: String?,
     var name: String,
-    var image: String,
+    var image: String?,
     var track: Int,
     var composer: String,
     var url: String,

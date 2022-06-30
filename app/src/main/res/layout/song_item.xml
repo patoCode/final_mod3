@@ -65,16 +65,17 @@
             android:textColor="@color/app_action_normal"
             android:textSize="12dp"
             android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/ivLike"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_like"
             android:layout_below="@+id/ivPic"
             android:layout_alignStart="@+id/tvComposer"
-            app:tint="@color/app_action_normal"
             android:layout_marginRight="5dp"
-            />
+            android:src="@drawable/ic_like"
+            android:clickable="true"
+            app:tint="@color/app_action_normal" />
         <TextView
             android:id="@+id/tvLike"
             android:layout_width="wrap_content"
@@ -108,18 +109,26 @@
             android:textColor="@color/app_action_normal"
             android:textSize="15dp"
             android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/ivAddList"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_list"
+            android:layout_below="@+id/ivPic"
+            android:layout_toEndOf="@+id/tvPlay"
+            app:tint="@color/app_action_normal"
+            />
         <Button
             android:id="@+id/actionEdit"
-            android:drawableStart="@drawable/ic_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
-            app:backgroundTint="@color/app_bg_hover"
-            app:tint="@color/black"
+            android:drawableStart="@drawable/ic_edit"
             android:text="editar"
-            />
+            app:backgroundTint="@color/app_bg_hover"
+            app:tint="@color/black" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import com.training.music.databinding.ActivityAlbumBinding
 import com.training.music.dto.AlbumDto
 import com.training.music.dto.ArtistDto
@@ -30,9 +32,11 @@ class AlbumActivity : AppCompatActivity() {
         override fun bindData(item:AlbumDto, view: View){
             var _tvName = view.findViewById<TextView>(R.id.tvName)
             var _tvYear = view.findViewById<TextView>(R.id.tvYear)
+            var _ivPic =  view.findViewById<ImageView>(R.id.ivPic)
             var _actionEdit = view.findViewById<Button>(R.id.actionEdit)
             _tvName.text = item.name.uppercase()
             _tvYear.text = item.year.toString()
+            Picasso.get().load(item.cover).into(_ivPic)
             _actionEdit.setOnClickListener{
                 editElement(item)
             }

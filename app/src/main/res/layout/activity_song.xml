@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_bg_main"
     tools:context=".SongActivity">
+
     <RelativeLayout
         android:id="@+id/rlTitle"
         android:layout_width="match_parent"
@@ -35,6 +36,16 @@
             android:fontFamily="@font/chakra_petch_medium"
             />
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/rlTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

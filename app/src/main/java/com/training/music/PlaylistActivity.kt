@@ -38,18 +38,30 @@ class PlaylistActivity : AppCompatActivity() {
             var _tvPriority = view.findViewById<TextView>(R.id.tvPriority)
             var _ivPic = view.findViewById<ImageView>(R.id.ivPic)
             var _actionEdit = view.findViewById<TextView>(R.id.actionEdit)
+            var _actionPlay = view.findViewById<TextView>(R.id.actionPlay)
+
             _tvName.text = item.name.uppercase()
             _tvPriority.text = item.priority.let { it }.toString()
             _ivPic.setImageResource(listCovers[_cover])
             _actionEdit.setOnClickListener{
                 editElement(item)
             }
+            _actionPlay.setOnClickListener{
+                goPlay(item)
+            }
         }
+    }
+
+    private fun goPlay(item: PlaylistDto) {
+        val intent = Intent(this, PlayerActivity::class.java).apply {}
+        intent.putExtra("playlist", item)
+        startActivity(intent)
     }
 
     private fun editElement(_obj: PlaylistDto) {
         var intent = Intent(this@PlaylistActivity, CRUDPlaylistActivity::class.java)
         intent.putExtra("playlist", _obj)
+        intent.putExtra("name", _obj.name)
         this.startActivity(intent)
         true
     }

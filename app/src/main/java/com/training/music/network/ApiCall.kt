@@ -1,9 +1,6 @@
 package com.training.music.network
 
-import com.training.music.dto.AlbumDto
-import com.training.music.dto.ArtistDto
-import com.training.music.dto.PlaylistDto
-import com.training.music.dto.SongDto
+import com.training.music.dto.*
 import com.training.music.response.Album
 import com.training.music.response.Artist
 import com.training.music.response.Playlist
@@ -24,6 +21,9 @@ interface ApiCall {
 
     @GET("playlists/list")
     suspend fun listPlaylist():Response<Playlist>
+
+    @GET("playlists/play/{id}")
+    suspend fun playList(@Path("id") id :String?):Response<Song>
 
     @POST("artista/add")
     suspend fun addArtist(@Body artist: ArtistDto):Response<*>
@@ -51,13 +51,11 @@ interface ApiCall {
 
     @DELETE("artista/delete/{id}")
     suspend fun deleteArtist(@Path("id") id: String?): Response<*>
-//    @PUT("cancion/edit/{id}")
-//    suspend fun updateSong(@Path("id") id :String?, @Body song: SongDto):Response<*>
-//
-//    @PUT("cancion/edit/{id}")
-//    suspend fun updateSong(@Path("id") id :String?, @Body song: SongDto):Response<*>
-//
-//    @PUT("cancion/edit/{id}")
-//    suspend fun updateSong(@Path("id") id :String?, @Body song: SongDto):Response<*>
+
+    @POST("cancion/like/{id}")
+    suspend fun songLike(@Path("id") id: String?): Response<*>
+
+    @POST("playlists/addsong")
+    suspend fun addSongList(@Body song: SongListDto):Response<*>
 
 }

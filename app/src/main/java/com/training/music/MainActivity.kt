@@ -32,4 +32,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlaylistActivity::class.java).apply {}
         startActivity(intent)
     }
+
+
 }
