@@ -58,7 +58,7 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
     private fun playSong(item: SongDto) {
-        val url = "https://www.bensound.com/bensound-music/bensound-ukulele.mp3"//item.url
+        val url = "https://p.scdn.co/mp3-preview/cdeb69b04b6bd105406677668868f0b4be51ce8b?cid=774b29d4f13844c495f206cafdad9c86"//item.url
         player = MediaPlayer()
         player!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
         try{

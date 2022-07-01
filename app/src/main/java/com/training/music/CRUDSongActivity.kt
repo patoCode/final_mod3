@@ -11,7 +11,9 @@ import androidx.core.view.isVisible
 import com.training.music.databinding.ActivityCrudsongBinding
 import com.training.music.dto.AlbumDto
 import com.training.music.dto.SongDto
+import com.training.music.dto.SpotifySong
 import com.training.music.network.ApiObject
+import com.training.music.network.ApiSpotify
 import com.training.music.response.Album
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +29,12 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private var _listAlbum: MutableList<AlbumDto> = ArrayList()
     private lateinit var _spinnerId : String
     /* END SPINNER */
+
+    /* SPINNER SPOTIFY */
+    lateinit var arrayAdapterSP: ArrayAdapter<*>
+    private var _listLyrics: MutableList<SpotifySong> = ArrayList()
+    private lateinit var _spinnerIdSp : String
+    /**/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCrudsongBinding.inflate(layoutInflater)
@@ -40,6 +48,8 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             setAdapter(arrayAdapter)
             onItemClickListener = this@CRUDSongActivity
         }
+        _fillSpotify()
+
         binding.tilAlbum.isVisible = true
         if(intent.extras != null){
             _element = intent.extras!!.getSerializable("song") as SongDto?
@@ -48,7 +58,7 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             binding.etImage.setText(_element?.image)
             binding.etTrack.setText(_element?.track.toString())
             binding.etComposer.setText(_element?.composer)
-            binding.etUrl.setText(_element?.url)
+            // binding.etUrl.setText(_element?.url)
             binding.etLyrics.setText(_element?.lyrics)
         }
         binding.btnSave.setOnClickListener {
@@ -58,6 +68,38 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         binding.ivBack.setOnClickListener{
             onBackPressed()
         }
+    }
+
+    private fun _fillSpotify() {
+        /*
+        lateinit var arrayAdapterSP: ArrayAdapter<*>
+        private var _listLyrics: MutableList<SpotifySong> = ArrayList()
+        private lateinit var _spinnerIdSp : String
+        */
+        _fillLyrics()
+        arrayAdapterSP = ArrayAdapter(this, R.layout.item_selection, _listLyrics)
+        arrayAdapterSP.setDropDownViewResource(R.layout.item_selection)
+
+        binding.matSource.setAdapter(arrayAdapterSP)
+    }
+
+    private fun _fillLyrics(){
+        CoroutineScope(Dispatchers.IO).launch {
+            val _res: Response<*> = ApiSpotify.getRetro().searchTrack(
+                "track: felices los 4",
+                "track"
+            )
+            val _response = _res.body()!!
+            Log.d("SPOTIFY", _response.toString())
+            runOnUiThread{
+                if(_res.isSuccessful){
+
+                }else{
+                    Toast.makeText(this@CRUDSongActivity, "ERROR DE CONEXION", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
 
     private fun _fillSpinner() {
@@ -94,7 +136,7 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
                 image,
                 binding.etTrack.text.toString().toInt(),
                 binding.etComposer.text.toString(),
-                binding.etUrl.text.toString(),
+                _spinnerIdSp,
                 binding.etLyrics.text.toString(),
                 null,
                 null,
@@ -115,7 +157,7 @@ class CRUDSongActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             _element!!.image = binding.etImage.text.toString()
             _element!!.track = binding.etTrack.text.toString().toInt()
             _element!!.composer = binding.etComposer.text.toString()
-            _element!!.url = binding.etUrl.text.toString()
+            _element!!.url = _spinnerIdSp
             _element!!.lyrics = binding.etLyrics.text.toString()
             _element!!.like = _element!!.like
             _element!!.playlist = null

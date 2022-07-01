@@ -101,11 +101,17 @@
                 android:id="@+id/tilUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Source">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUrl"
+                android:hint="Source"
+                >
+                <AutoCompleteTextView
+                    android:id="@+id/matSource"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:completionThreshold="3"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
             <Space
                 android:layout_width="wrap_content"

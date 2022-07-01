@@ -23,18 +23,18 @@
             android:clickable="true"
             android:layout_marginRight="20dp"
             />
+
         <ImageView
             android:id="@+id/btnPause"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/ic_pause"
+            android:layout_below="@+id/btnPlay"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_below="@+id/btnPlay"
-            app:tint="@color/app_third_text"
-            android:clickable="true"
             android:layout_marginRight="20dp"
-            />
+            android:clickable="true"
+            android:src="@drawable/ic_pause"
+            app:tint="@color/app_third_text" />
 
         <ImageView
             android:id="@+id/ivPic"

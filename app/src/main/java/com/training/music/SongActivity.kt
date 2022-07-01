@@ -93,6 +93,7 @@ class SongActivity : AppCompatActivity() {
         this.startActivity(intent)
         true
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySongBinding.inflate(layoutInflater)
@@ -111,15 +112,18 @@ class SongActivity : AppCompatActivity() {
         super.onResume()
         list()
     }
+
     private fun addElement() {
         var intent = Intent(this@SongActivity, CRUDSongActivity::class.java)
         startActivity(intent)
     }
+
     private fun initRecycler(){
         adapter = GenericAdapter<SongDto>(_songList, R.layout.song_item, bindingInterface)
         binding.rvSong.layoutManager = LinearLayoutManager(this)
         binding.rvSong.adapter = adapter
     }
+
     fun list(){
         binding.progress.visibility = View.VISIBLE
         CoroutineScope(Dispatchers.IO).launch {
@@ -139,6 +143,4 @@ class SongActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

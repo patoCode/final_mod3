@@ -109,16 +109,16 @@
             android:textColor="@color/app_action_normal"
             android:textSize="15dp"
             android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/ivAddList"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_list"
             android:layout_below="@+id/ivPic"
+            android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/tvPlay"
-            app:tint="@color/app_action_normal"
-            />
+            android:src="@drawable/ic_list"
+            app:tint="@color/app_action_normal" />
         <Button
             android:id="@+id/actionEdit"
             android:layout_width="wrap_content"
